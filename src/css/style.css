@@ -1,0 +1,62 @@
+body {
+  background-image: url('https://3этаж.рф/800/600/http/strongman.to/wp-content/uploads/2019/12/122490121_s-e1599646673407.jpg');
+  background-size: cover;
+  cursor: url('../img/custom.png'), auto;
+}
+
+.text {
+  font-family: 'Comic Sans MS', 'Courier New', Arial;
+  color: #fff;
+  font-weight: 900;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+}
+
+.game-conteiner{
+  height: 500px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.game {
+  display: flex;
+  flex-wrap: wrap;
+  width: 420px;
+}
+
+.game-box {
+  background-color: rgb(4, 125, 38);
+  height: 100px;
+  width: 100px;
+  border: 2px solid rgb(248, 183, 183);
+  border-radius: 40px;
+}
+
+.goblin {
+  background-image: url('../img/goblin.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.win {
+  color: red;
+  font-weight: bold;
+}
