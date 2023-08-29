@@ -8,25 +8,23 @@ const info = document.querySelector(".info");
 
 function game() {
   goblin.forEach((item) => {
-    item.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      if (stat.textContent == 1) {
-        info.classList.add("win");
-        info.textContent = "Вы выиграли!!!";
-        reset();
-      }
-      if (item.className === "game-box goblin") {
+    item.addEventListener("click", (evt) => {
+      if (evt.target.classList.contains("goblin")) {
         ++wins.textContent;
         --stat.textContent;
-      } else {
-        if (loss.textContent == 4) {
+        if (stat.textContent == 0) {
           info.classList.add("win");
-          info.textContent = "Вы проиграли(((";
+          info.textContent = "Вы выиграли!!!";
           reset();
         }
-        ++loss.textContent;
-      }
+      } else {
+          if (loss.textContent == 4) {
+            info.classList.add("win");
+            info.textContent = "Вы проиграли(((";
+            reset();
+          }
+          ++loss.textContent;
+        }
     });
   });
 }
@@ -41,7 +39,7 @@ function reset() {
   }, 2000);
 }
 
-setInterval(jump, 1000);
+setInterval(jump, 3000);
 
 function jump() {
   goblin.forEach((item) => {
