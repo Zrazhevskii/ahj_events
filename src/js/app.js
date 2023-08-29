@@ -8,7 +8,9 @@ const info = document.querySelector(".info");
 
 function game() {
   goblin.forEach((item) => {
-    item.addEventListener("click", () => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault()
+
       if (stat.textContent == 1) {
         info.classList.add("win");
         info.textContent = "Вы выиграли!!!";
