@@ -9,7 +9,7 @@ const info = document.querySelector(".info");
 function game() {
   goblin.forEach((item) => {
     item.addEventListener("click", (e) => {
-      e.preventDefault()
+      e.preventDefault();
 
       if (stat.textContent == 1) {
         info.classList.add("win");
