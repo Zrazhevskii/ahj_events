@@ -6,48 +6,52 @@ const loss = document.querySelector(".status__loss");
 const stat = document.querySelector(".stat");
 const info = document.querySelector(".info");
 
-function game() {
-  goblin.forEach((item) => {
-    item.addEventListener("click", (evt) => {
-      if (evt.target.classList.contains("goblin")) {
-        ++wins.textContent;
-        --stat.textContent;
-        if (stat.textContent == 0) {
-          info.classList.add("win");
-          info.textContent = "Вы выиграли!!!";
-          reset();
-        }
-      } else {
-          if (loss.textContent == 4) {
-            info.classList.add("win");
-            info.textContent = "Вы проиграли(((";
-            reset();
+function userClick() {
+    goblin.forEach((item) => {
+        item.addEventListener('click', (evt) => {
+          if (evt.target.classList.contains('goblin')) {
+            item.classList.remove('goblin');
+              ++wins.textContent;
+              --stat.textContent;
+              item.classList.add('boom');
+              setTimeout(() => item.classList.remove('boom'), 500);
+              if (wins.textContent == 5) {
+                info.classList.add('win');
+                info.textContent = 'Вы выиграли!!!';
+                reset();
+            }
+          } else {
+              ++loss.textContent;
+              if (loss.textContent == 5) {
+                  info.classList.add('win');
+                  info.textContent = 'Вы проиграли(((';
+                  reset();
+              }
           }
-          ++loss.textContent;
-        }
+          interval()
+        });
     });
-  });
 }
 
 function reset() {
-  setTimeout(() => {
-    info.textContent = "Долбани гоблина!";
-    wins.textContent = 0;
-    loss.textContent = 0;
-    stat.textContent = 5;
-    info.classList.remove("win");
-  }, 2000);
+    setTimeout(() => {
+        info.textContent = 'Долбани гоблина!';
+        wins.textContent = 0;
+        loss.textContent = 0;
+        stat.textContent = 5;
+        info.classList.remove('win');
+    }, 2000);
 }
 
-setInterval(jump, 3000);
+const interval = setInterval(jump, 1000);
 
 function jump() {
-  goblin.forEach((item) => {
-    if (item.className === "game-box goblin") {
-      item.classList.remove("goblin");
-    }
-  });
-  goblin[numr()].classList.add("goblin");
+    goblin.forEach((item) => {
+        if (item.className === 'game-box goblin') {
+            item.classList.remove('goblin');
+        }
+    });
+    goblin[numr()].classList.add('goblin');
 }
 
-game();
+userClick();
