@@ -64,4 +64,5 @@ body {
 .boom {
   background-image: url('../img/boom.png');
   background-size: contain;
+  background-repeat: no-repeat;
 }
